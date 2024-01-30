@@ -15,7 +15,7 @@ import { Flip, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Register from './Register';
 import ProgressBar from './ProgressBar';
-import Error from './error';
+import Error from './Error';
 function App() {
  const [isLoggedIn, setIsLoggedIn] = useState(false);
  const checkRole = (requiredRole) => {
@@ -35,10 +35,10 @@ return (
             <Route path='/About' element={<About />} />
             <Route element={<Login setIsLoggedIn={setIsLoggedIn} />} path="/login" exact />
             <Route element={<PrivateRoutes />}>
-              <Route element={checkRole('toplevel') ? <Organization /> : <Navigate to="/login" />} path="/toplevel" exact />
-              <Route element={checkRole('middleman') ? <Middleman/> : <Navigate to="/login" />} path='/middleman' exact/>
+              <Route element={checkRole('Power_System_Operators') ? <Organization /> : <Navigate to="/login" />} path="/Power_System_Operators" exact />
+              <Route element={checkRole('Data_Analysts') ? <Middleman/> : <Navigate to="/login" />} path='/Data_Analysts' exact/>
               <Route element={checkRole('consumers') ? <Consumer/> : <Navigate to="/login" />} path='/consumers' exact/>
-              <Route element={checkRole('toplevel') ? <Register/> : <Navigate to="/login" />} path='/register' exact/>
+              <Route element={checkRole('Power_System_Operators') ? <Register/> : <Navigate to="/login" />} path='/register' exact/>
             </Route>
 
             <Route path='*' element={<Error/>}></Route>
